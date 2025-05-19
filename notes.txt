@@ -1,0 +1,6 @@
+crop images
+https://www.geeksforgeeks.org/how-to-crop-images-in-reactjs/
+
+..........................................
+pencil sketch
+https://stackoverflow.com/questions/10122553/create-a-realistic-pencil-tool-for-a-painting-app-with-html5-canvas

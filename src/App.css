@@ -1,0 +1,91 @@
+body{
+
+  background-image: url(../public/BG.jpg);
+  background-position: center;
+  background-size: cover;
+   font-family: "Edu TAS Beginner", cursive;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+ 
+}
+
+
+.index {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+height: 90vh;
+width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.upload-btn,
+.download-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 10px;
+}
+.upload-btn:hover,
+.download-btn:hover {
+  background-color: #0056b3;
+}
+.preview-img {
+  margin-top: 20px;
+  max-width: 300px;
+  border-radius: 10px;
+}
+.right-panel {
+  width: 400px;
+  height: 100vh; 
+  /* padding: 20px;  */
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: transparent;
+}
+
+.tools button {
+  width: fit-content;
+}
+.tools{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brightness-tool{
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+  /* padding-left: 20px; */
+  
+}
+   input[type="range"] {
+  width: 100%;
+  /* left: 20px; */
+  
+   }       
+           
+      .sketch-canvas{
+        top: 62px !important;
+      }

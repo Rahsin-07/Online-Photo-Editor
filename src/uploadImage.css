@@ -1,0 +1,84 @@
+body{
+    background-color:#292c31;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.canvas-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+canvas {
+  border: 1px solid white;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.upload-btn,
+.download-btn,
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 10px;
+  border: none;
+}
+
+.upload-btn:hover,
+.download-btn:hover,
+button:hover
+{
+  background-color: #0056b3;
+}
+
+.preview-img {
+  margin-top: 20px;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.save-btn button {
+  margin-top: 10px;
+}
+
+select {
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="file"] {
+  margin: 20px 0;
+}

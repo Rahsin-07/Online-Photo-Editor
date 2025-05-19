@@ -1,0 +1,141 @@
+
+
+// import { useState, useRef } from "react";
+// import ReactCrop from "react-image-crop";
+// import "react-image-crop/dist/ReactCrop.css";
+// import { jsPDF } from "jspdf";
+// import { saveAs } from "file-saver";
+// import "./App.css";
+
+// function App() {
+//   const [image, setImage] = useState(null);
+//   const [crop, setCrop] = useState({ aspect: 1 });
+//   const [completedCrop, setCompletedCrop] = useState(null);
+//   const [croppedImage, setCroppedImage] = useState(null);
+//   const imageRef = useRef(null);
+
+//   const handleFileChange = (event) => {
+//     const file = event.target.files[0];
+//     if (file && ["image/png", "image/jpg", "image/jpeg"].includes(file.type)) {
+//       setImage(URL.createObjectURL(file));
+//       setCroppedImage(null); // Clear previous cropped image
+//     } else {
+//       alert("Please select a PNG, JPG, or JPEG image.");
+//     }
+//   };
+
+//   const onImageLoaded = (img) => {
+//     imageRef.current = img;
+//   };
+
+//   const onCropComplete = (crop) => {
+//     setCompletedCrop(crop);
+
+//     if (
+//       imageRef.current &&
+//       crop.width &&
+//       crop.height &&
+//       crop.x !== undefined &&
+//       crop.y !== undefined
+//     ) {
+//       const canvas = document.createElement("canvas");
+//       const scaleX = imageRef.current.naturalWidth / imageRef.current.width;
+//       const scaleY = imageRef.current.naturalHeight / imageRef.current.height;
+//       canvas.width = crop.width;
+//       canvas.height = crop.height;
+//       const ctx = canvas.getContext("2d");
+
+//       ctx.drawImage(
+//         imageRef.current,
+//         crop.x * scaleX,
+//         crop.y * scaleY,
+//         crop.width * scaleX,
+//         crop.height * scaleY,
+//         0,
+//         0,
+//         crop.width,
+//         crop.height
+//       );
+
+//       const base64Image = canvas.toDataURL("image/png");
+//       setCroppedImage(base64Image);
+//     }
+//   };
+
+//   const downloadImage = () => {
+//     if (croppedImage) {
+//       saveAs(croppedImage, "cropped_image.png");
+//     }
+//   };
+
+//   const downloadPDF = () => {
+//     if (croppedImage) {
+//       const pdf = new jsPDF();
+//       pdf.addImage(croppedImage, "PNG", 10, 10, 100, 100);
+//       pdf.save("cropped_image.pdf");
+//     }
+//   };
+
+//   const downloadWord = () => {
+//     if (croppedImage) {
+//       const htmlContent = `<html><body><img src="${croppedImage}" /></body></html>`;
+//       const blob = new Blob([htmlContent], {
+//         type: "application/msword",
+//       });
+//       saveAs(blob, "cropped_image.doc");
+//     }
+//   };
+
+//   return (
+//     <div className="container">
+//       <h1 className="heading">Chola Image Cropper</h1>
+//       <input
+//         type="file"
+//         accept="image/png, image/jpg, image/jpeg"
+//         id="file-upload"
+//         onChange={handleFileChange}
+//         style={{ display: "none" }}
+//       />
+//       <label htmlFor="file-upload" className="upload-btn">
+//         Upload Image
+//       </label>
+
+//       {image && (
+//         <ReactCrop
+//           crop={crop}
+//           onChange={setCrop}
+//           onComplete={onCropComplete}
+//           aspect={crop.aspect}
+//         >
+//           <img
+//             src={image}
+//             ref={imageRef}
+//             alt="To Crop"
+//             onLoad={(e) => onImageLoaded(e.currentTarget)}
+//             style={{ maxWidth: "100%" }}
+//           />
+//         </ReactCrop>
+//       )}
+
+//       {croppedImage && (
+//         <div style={{ marginTop: 20 }}>
+//           <h3>Cropped Preview</h3>
+//           <img src={croppedImage} alt="Cropped" className="preview-img" />
+//           <div style={{ marginTop: 10 }}>
+//             <button className="download-btn" onClick={downloadImage}>
+//               Download as Image
+//             </button>
+//             <button className="download-btn" onClick={downloadPDF}>
+//               Download as PDF
+//             </button>
+//             <button className="download-btn" onClick={downloadWord}>
+//               Download as Word
+//             </button>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default App;
