@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import jsPDF from "jspdf";
 import Navbar from "./Navbar";
+import { MdCleaningServices } from "react-icons/md";
+import { FaSave } from "react-icons/fa";
 import "./sketch.css"; 
 
 
@@ -116,7 +118,8 @@ export default function DrawingCanvas() {
          
           <button onClick={handleClear}
           style={{backgroundColor:"red",color:"white",fontWeight:"bold"}} >
-            Clear
+            Clear <MdCleaningServices style={{ transform: 'translate(1px, 2px)' }} />
+
           </button>
           <label htmlFor="save">Save As:</label>
            <select
@@ -132,7 +135,7 @@ export default function DrawingCanvas() {
           </select>
           <button
           style={{backgroundColor:"green",color:"white",fontWeight:"bold"}}
-          onClick={handleSave}>Save</button>
+          onClick={handleSave}>Save <FaSave style={{transform:'translate(1px,2px)'}} /></button>
         </div>
           </div>
 

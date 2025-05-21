@@ -7,6 +7,7 @@ body{
   font-style: normal;
   color: white;
   /* background-color: black; */
+  overflow: hidden;
 
  
 }
@@ -25,7 +26,7 @@ width: 100%;
 
 
 .upload-screen{
- /* background-image: url(../public/BG.png);
+ /* background-image: url(../public/BG.jpg);
   background-position: center;
   background-size: cover; */
   color: black;
@@ -69,14 +70,17 @@ width: 100%;
   border-radius: 10px;
 }
 .right-panel {
-  width: 100px;
+  width: 80px;
   height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: transparent;
+  /* background: transparent; */
   gap: 10px;
-  /* background-color: #263d59; */
+    font-size: medium;
+  /* color: white; */
+  /* font-size: 28px; */
+  /* background-color:#0b1e56; */
 
   box-shadow: -4px 0 6px -2px rgba(0, 0, 0, 0.1); 
 }
@@ -91,7 +95,9 @@ width: 100%;
   width: fit-content;
   color: black;
   background: transparent;
-  font-size: x-large;
+  font-size: medium;
+  /* color: white; */
+  
 }
 .tools{
   display: flex;
