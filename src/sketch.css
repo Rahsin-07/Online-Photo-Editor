@@ -1,0 +1,67 @@
+
+
+.sketch-page{
+   display: flex;
+   justify-content: center;
+   
+}
+
+button{
+   cursor: pointer;
+}
+
+.color-picker{
+   padding-top: 20px;
+   color: black;
+   margin: 0 auto;
+}
+.color-btn{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   padding-top: 10px;
+  
+   
+}
+.color-btn button{
+   height: 40px;
+   width: 100px;
+   border: none;
+   border-radius: 5px;
+   
+}
+
+.btn-container{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;  
+}
+
+.clr-red{
+   background-color: red;
+}
+
+.clr-black{
+   background-color: black;
+}
+.clr-blue{
+   background-color: blue;
+}
+.clr-green{
+   background-color: green;
+}
+.clr-yellow{
+   background-color: yellow;
+}
+.clr-orange{
+   background-color: orange;
+  
+}
+
+.btn-container button{
+   height: 30px;
+   width: 100px;
+    
+   
+   
+}

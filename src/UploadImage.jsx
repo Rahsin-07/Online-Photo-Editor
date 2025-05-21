@@ -7,8 +7,9 @@ import "./App.css";
 import { FaCropSimple } from "react-icons/fa6";
 import { ImBrightnessContrast } from "react-icons/im";
 import { BsFillPencilFill } from "react-icons/bs";
-import { TfiGallery } from "react-icons/tfi";
-
+import { MdFileUpload } from "react-icons/md";
+import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 function App() {
   const [image, setImage] = useState(null);
   const [crop, setCrop] = useState({ aspect: 1 });
@@ -24,6 +25,10 @@ function App() {
   const imageRef = useRef(null);
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
+ const navigate = useNavigate();
+  const goToSketch = () => {
+    navigate("/sketch");
+  };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -133,7 +138,7 @@ function App() {
       canvas.height = img.height;
       const ctx = canvas.getContext("2d");
 
-      ctx.filter = `brightness(${brightness}%)`;
+      ctx.filter = `brightness(${brightness}%);`
       ctx.drawImage(img, 0, 0);
 
       if (canvasRef.current && showSketchTool) {
@@ -165,7 +170,7 @@ function App() {
 
   const downloadWord = () => {
     getEditedImageWithBrightness((dataUrl) => {
-      const htmlContent = `<html><body><img src="${dataUrl}" /></body></html>`;
+      const htmlContent = <html><body><img src="${dataUrl}" /></body></html>;
       const blob = new Blob([htmlContent], {
         type: "application/msword",
       });
@@ -180,9 +185,18 @@ function App() {
   };
 
   return (
+    <div className="whole-screen">
+      <Navbar />
+      
+      
+      <div className="upload-screen">
+   
     <div style={{ display: "flex" }}>
+   
+   
+    
       <div className="index">
-        <h1 className="heading">Online Image Editor</h1>
+       
         {!image && (
           <>
             <input
@@ -195,6 +209,8 @@ function App() {
             <label htmlFor="file-upload" className="upload-btn" style={{ textAlign: "center" }}>
               Upload Image
             </label>
+
+            <button onClick={goToSketch } className="upload-btn"  style={{ textAlign: "center" ,fontWeight:"bold"}}>Sketch</button>
           </>
         )}
 
@@ -211,7 +227,7 @@ function App() {
                 ref={imageRef}
                 alt="To Crop"
                 onLoad={(e) => onImageLoaded(e.currentTarget)}
-                style={{ maxWidth: "100%", display: "flex", margin: "auto" }}
+                style={{ maxWidth: "100%", display: "flex", margin: "auto" ,height:"400px",width:"500px"}}
               />
             </ReactCrop>
 
@@ -226,14 +242,15 @@ function App() {
         )}
 
         {image && (!showCropTool || isCropApplied) && (
-          <div style={{ marginTop: 20, position: "relative", display: "inline-block" }}>
+          <div >
             <h3>Preview</h3>
             <img
               src={croppedImage || image}
               alt="Edited"
               ref={imageRef}
               className="preview-img"
-              style={{ filter: `brightness(${brightness}%)`, display: "block" }}
+             style={{ filter: `brightness(${brightness}%)`, display: "block" }}
+
               onLoad={() => {
                 if (canvasRef.current && imageRef.current) {
                   canvasRef.current.width = imageRef.current.clientWidth;
@@ -247,7 +264,7 @@ function App() {
                 ref={canvasRef}
                 style={{
                   position: "absolute",
-                  top: "62px",
+                  top: 0,
                   left: 0,
                   cursor: "crosshair",
                   zIndex: 10,
@@ -262,13 +279,14 @@ function App() {
         )}
       </div>
 
+
       {image && (
         <div className="right-panel" style={{ height: "100vh" }}>
-          <h1 style={{ fontSize: "20px",  textAlign: "center" }}>
-            Online Image Editor
-          </h1>
+        
+         
 
-          <input
+          <div className="tools" style={{ marginBottom: "15px" }}>
+            <input
             type="file"
             accept="image/png, image/jpg, image/jpeg"
             id="right-upload"
@@ -278,12 +296,10 @@ function App() {
           <label
             htmlFor="right-upload"
             className="upload-btn"
-            style={{ marginBottom: "20px", display: "block", textAlign: "center" }}
+            style={{  display: "block", textAlign: "center" }}
           >
-            <TfiGallery /> Upload Image
+         <MdFileUpload />
           </label>
-
-          <div className="tools" style={{ marginBottom: "15px" }}>
             <button
               className="download-btn"
               onClick={() => {
@@ -291,22 +307,23 @@ function App() {
                 setIsCropApplied(false);
               }}
             >
-              <FaCropSimple /> Crop
+              <FaCropSimple /> 
             </button>
 
             <button
               className="download-btn"
               onClick={() => setShowBrightnessSlider(!showBrightnessSlider)}
             >
-              <ImBrightnessContrast /> Brightness
+              <ImBrightnessContrast />
             </button>
 
             {showBrightnessSlider && (
               <div style={{ marginBottom: "20px" }} className="brightness-tool">
-                <label htmlFor="brightness-range" style={{ fontWeight: "bold" }}>
-                  Slide to Adjust:
+                <label htmlFor="brightness-range" style={{ fontWeight: "bold" ,paddingLeft:"10px"}}>
+                  Slide me:
                 </label>
                 <input
+                  style={{ paddingLeft: "10px", width: "80%" }}
                   type="range"
                   className="form-range"
                   id="brightness-range"
@@ -319,19 +336,20 @@ function App() {
             )}
 
             <button className="download-btn" onClick={() => setShowSketchTool(!showSketchTool)}>
-              <BsFillPencilFill /> Sketch
+              <BsFillPencilFill />
             </button>
+           
           </div>
 
           <div>
-            <label style={{ fontWeight: "bold" }}>Save As</label>
-            <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-              <select id="format-select" className="download-btn" style={{ padding: "8px", flex: 1 }}>
+            <label style={{ fontWeight: "bold" ,paddingLeft:"10px" }}>Save As:</label>
+            <div  className="save-pic" >
+              <select id="format-select" className="download-btn" style={{ padding: "8px", flex: 1,backgroundColor:"#f9f9f9" }}>
                 <option value="jpeg">Jpeg</option>
                 <option value="image">PNG</option>
                 <option value="pdf">PDF</option>
                 <option value="word">Word</option>
-              </select>
+              </select> 
               <button
                 className="download-btn"
                 onClick={() => {
@@ -348,6 +366,8 @@ function App() {
           </div>
         </div>
       )}
+    </div>
+    </div>
     </div>
   );
 }

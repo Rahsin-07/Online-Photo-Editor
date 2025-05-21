@@ -1,12 +1,13 @@
 body{
 
-  background-image: url(../public/BG.jpg);
-  background-position: center;
-  background-size: cover;
-   font-family: "Edu TAS Beginner", cursive;
+ 
+    font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
+  color: white;
+  /* background-color: black; */
+
  
 }
 
@@ -16,19 +17,28 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+height: 92vh;
 
-height: 90vh;
 width: 100%;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
+
+
+.upload-screen{
+ /* background-image: url(../public/BG.png);
+  background-position: center;
+  background-size: cover; */
+  color: black;
+  background-color: #B2BEB5;
 }
+
+.upload-btn{
+  background-color: black;
+  color: white;
+}
+
+
+
 .heading {
   font-size: 24px;
   font-weight: bold;
@@ -36,13 +46,17 @@ width: 100%;
 }
 .upload-btn,
 .download-btn {
-  background-color: #007bff;
-  color: white;
+  /* background-color: #f9f9f9; */
+  /* color: black; */
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 18px;
+  /* font-size: 22px; */
   margin: 10px;
+  /* font-size: x-large;   */
+  width: fit-content;
+  border: none;
+ 
 }
 .upload-btn:hover,
 .download-btn:hover {
@@ -50,27 +64,40 @@ width: 100%;
 }
 .preview-img {
   margin-top: 20px;
-  max-width: 300px;
+  width: 700px;
+  height: 350px;
   border-radius: 10px;
 }
 .right-panel {
-  width: 400px;
-  height: 100vh; 
-  /* padding: 20px;  */
-  background-color: #f9f9f9;
+  width: 100px;
+  height: 90vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   background: transparent;
+  gap: 10px;
+  /* background-color: #263d59; */
+
+  box-shadow: -4px 0 6px -2px rgba(0, 0, 0, 0.1); 
 }
 
+
+
+/* .right-pic-upload{
+  display: flex;
+  justify-content: center;
+} */
 .tools button {
   width: fit-content;
+  color: black;
+  background: transparent;
+  font-size: x-large;
 }
 .tools{
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .brightness-tool{
@@ -81,11 +108,21 @@ width: 100%;
   
 }
    input[type="range"] {
-  width: 100%;
+  width: 80%;
   /* left: 20px; */
   
    }       
            
-      .sketch-canvas{
-        top: 62px !important;
-      }
+      .sketch-canvas {
+    transform: translate(230px, 160px);
+}
+
+
+  .save-pic{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px !important;
+  }
+  .save-pic button{
+    font-size: small;
+  }
